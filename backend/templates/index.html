@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle do Robô</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <h1>Controle do Robô</h1>
+    <A href="logs">CLIQUE AQUI PARA ACESSAR OS LOGS</A>
+    <div class="opcoesRobo">
+        <br/><button hx-post="/ligar">Ligar Robô</button>
+        <button hx-post="/home">Home</button>
+        <button hx-post="/ligar_ferramenta">Ligar Ferramenta</button>
+        <button hx-post="/desligar_ferramenta">Desligar Ferramenta</button>
+    </div><br/>
+    <form hx-post="/mover" hx-trigger="submit" hx-target="#message" hx-swap="outerHTML">
+        <input type="number" name="distancia_x" placeholder="Distância X" required>
+        <input type="number" name="distancia_y" placeholder="Distância Y" required>
+        <input type="number" name="distancia_z" placeholder="Distância Z" required>
+        <button type="submit">Mover</button>
+    </form>
+    <div id="message" hx-swap="innerHTML">
+    </div>
+</body>
+</html>

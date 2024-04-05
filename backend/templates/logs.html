@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard do Robô</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <h1>Logs</h1>
+    <div id="logs" hx-get="/get_logs" hx-trigger="every 2s">
+        {% for log in logs %}
+        <div>
+            <p>Comando: {{ log.command }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        <button hx-post="/delete_logs"  hx-target="#message">Apagar Todos os Logs</button>
+    </div>
+</body>
+</html>
