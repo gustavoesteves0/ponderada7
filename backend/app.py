@@ -49,7 +49,7 @@ def mover():
     nova_posicao_z = device.pose()[2] + float(data['distancia_z'])
     device.move_to(nova_posicao_x, nova_posicao_y, nova_posicao_z, 0, wait=True)
     db.insert({'action': 'mover', 'distancia_x': data['distancia_x'], 'distancia_y': data['distancia_y'], 'distancia_z': data['distancia_z']})
-    return jsonify({'message': 'Movido com sucesso'})
+    return jsonify({'message': 'Movimento - Movimento realizado com sucesso'})
 
 @app.route('/posicao_atual', methods=['GET'])
 def posicao_atual():
